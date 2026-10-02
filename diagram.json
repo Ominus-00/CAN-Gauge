@@ -1,0 +1,420 @@
+{
+  "version": 1,
+  "author": "Om Patel",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 41.54,
+      "left": 144.23,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "chip-tca3413",
+      "id": "chip1",
+      "top": 173.82,
+      "left": 139.2,
+      "attrs": {}
+    },
+    {
+      "type": "chip-ecu",
+      "id": "chip2",
+      "top": 360,
+      "left": 210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "iat",
+      "top": 350,
+      "left": -170,
+      "attrs": {
+        "value": "448"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "iat_label",
+      "top": 320,
+      "left": -178,
+      "attrs": {
+        "text": "IAT  -40 to 120 C"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "boost",
+      "top": 510,
+      "left": -170,
+      "attrs": {
+        "value": "256"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "boost_label",
+      "top": 480,
+      "left": -178,
+      "attrs": {
+        "text": "Boost  -1 to 3 bar"
+      }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "coolant",
+      "top": 670,
+      "left": -170,
+      "attrs": {
+        "value": "739",
+        "travelLength": "30"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "coolant_label",
+      "top": 640,
+      "left": -178,
+      "attrs": {
+        "text": "Coolant  -40 to 140 C"
+      }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "oiltemp",
+      "top": 350,
+      "left": 480,
+      "attrs": {
+        "value": "651",
+        "travelLength": "30"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "oiltemp_label",
+      "top": 320,
+      "left": 472,
+      "attrs": {
+        "text": "Oil temp  -40 to 180 C"
+      }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "egt",
+      "top": 510,
+      "left": 480,
+      "attrs": {
+        "value": "419",
+        "travelLength": "30"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "egt_label",
+      "top": 480,
+      "left": 472,
+      "attrs": {
+        "text": "EGT  0 to 1100 C"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "oilp",
+      "top": 670,
+      "left": 480,
+      "attrs": {
+        "value": "409"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "oilp_label",
+      "top": 640,
+      "left": 472,
+      "attrs": {
+        "text": "Oil pressure  0 to 10 bar"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "oled1:VCC",
+      "esp:3V3.1",
+      "red",
+      [
+        "v-38.4",
+        "h-201.6",
+        "v0"
+      ]
+    ],
+    [
+      "oled1:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v-28.8",
+        "h-201.6",
+        "v0"
+      ]
+    ],
+    [
+      "oled1:SCL",
+      "esp:9",
+      "green",
+      [
+        "v-48",
+        "h-230.4",
+        "v0"
+      ]
+    ],
+    [
+      "oled1:SDA",
+      "esp:8",
+      "green",
+      [
+        "v-57.6",
+        "h-249.6",
+        "v0"
+      ]
+    ],
+    [
+      "esp:1",
+      "chip1:TXD",
+      "orange",
+      [
+        "h19.2",
+        "v0"
+      ]
+    ],
+    [
+      "esp:2",
+      "chip1:RXD",
+      "blue",
+      [
+        "h28.8",
+        "v0"
+      ]
+    ],
+    [
+      "chip1:VCC",
+      "esp:3V3.1",
+      "red",
+      [
+        "h-9.6",
+        "v96",
+        "h-163.2",
+        "v0"
+      ]
+    ],
+    [
+      "chip1:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "h-19.2",
+        "v115.2",
+        "h-163.2",
+        "v0"
+      ]
+    ],
+    [
+      "chip1:VIO",
+      "chip1:VCC",
+      "red",
+      [
+        "h19.2",
+        "v38.4",
+        "h-153.6",
+        "v0"
+      ]
+    ],
+    [
+      "chip1:STB",
+      "chip1:GND",
+      "black",
+      [
+        "h28.8",
+        "v96",
+        "h-172.8",
+        "v0"
+      ]
+    ],
+    [
+      "chip2:VCC",
+      "chip1:VCC",
+      "red",
+      [
+        "h-38.4",
+        "v0"
+      ]
+    ],
+    [
+      "chip2:GND",
+      "chip1:GND",
+      "black",
+      [
+        "h-48",
+        "v0"
+      ]
+    ],
+    [
+      "chip2:EN",
+      "chip2:VCC",
+      "red",
+      [
+        "h19.2",
+        "v38.4",
+        "h-153.6",
+        "v0"
+      ]
+    ],
+    [
+      "chip2:CANH",
+      "chip1:CANH",
+      "purple",
+      [
+        "h67.2",
+        "v0"
+      ]
+    ],
+    [
+      "chip2:CANL",
+      "chip1:CANL",
+      "cyan",
+      [
+        "h57.6",
+        "v0"
+      ]
+    ],
+    [
+      "iat:SIG",
+      "chip2:IAT",
+      "yellow",
+      []
+    ],
+    [
+      "iat:VCC",
+      "chip2:VCC",
+      "red",
+      []
+    ],
+    [
+      "iat:GND",
+      "chip2:GND",
+      "black",
+      []
+    ],
+    [
+      "boost:SIG",
+      "chip2:BOOST",
+      "orange",
+      []
+    ],
+    [
+      "boost:VCC",
+      "iat:VCC",
+      "red",
+      []
+    ],
+    [
+      "boost:GND",
+      "iat:GND",
+      "black",
+      []
+    ],
+    [
+      "coolant:SIG",
+      "chip2:COOLANT",
+      "limegreen",
+      []
+    ],
+    [
+      "coolant:VCC",
+      "iat:VCC",
+      "red",
+      []
+    ],
+    [
+      "coolant:GND",
+      "iat:GND",
+      "black",
+      []
+    ],
+    [
+      "oiltemp:SIG",
+      "chip2:OIL_TEMP",
+      "magenta",
+      []
+    ],
+    [
+      "oiltemp:VCC",
+      "chip2:VCC",
+      "red",
+      []
+    ],
+    [
+      "oiltemp:GND",
+      "chip2:GND",
+      "black",
+      []
+    ],
+    [
+      "egt:SIG",
+      "chip2:EGT",
+      "cyan",
+      []
+    ],
+    [
+      "egt:VCC",
+      "oiltemp:VCC",
+      "red",
+      []
+    ],
+    [
+      "egt:GND",
+      "oiltemp:GND",
+      "black",
+      []
+    ],
+    [
+      "oilp:SIG",
+      "chip2:OIL_P",
+      "gold",
+      []
+    ],
+    [
+      "oilp:VCC",
+      "oiltemp:VCC",
+      "red",
+      []
+    ],
+    [
+      "oilp:GND",
+      "oiltemp:GND",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}

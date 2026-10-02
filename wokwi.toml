@@ -1,0 +1,12 @@
+[wokwi]
+version = 1
+firmware = ".pio/build/esp32-s3-devkitc-1/firmware.bin"
+elf = ".pio/build/esp32-s3-devkitc-1/firmware.elf"
+
+[[chip]]
+name = "tca3413"
+binary = "tca3413.chip.wasm"
+
+[[chip]]
+name = "ecu"
+binary = "ecu.chip.wasm"

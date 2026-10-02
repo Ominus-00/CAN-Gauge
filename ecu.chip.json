@@ -1,0 +1,6 @@
+{
+  "name": "Fake ECU - 6 sensors",
+  "author": "Om Patel",
+  "pins": ["VCC", "GND", "IAT", "BOOST", "COOLANT", "OIL_TEMP", "EGT", "OIL_P", "EN", "CANL", "CANH", ""],
+  "controls": []
+}

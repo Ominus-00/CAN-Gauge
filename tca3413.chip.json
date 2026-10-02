@@ -1,0 +1,6 @@
+{
+  "name": "TCAN3413 (simplified digital model)",
+  "author": "Om Patel",
+  "pins": ["TXD", "GND", "VCC", "RXD", "VIO", "CANL", "CANH", "STB"],
+  "controls": []
+}
